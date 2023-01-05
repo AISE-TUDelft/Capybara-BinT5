@@ -4,12 +4,12 @@ Replication package for the SANER 2023 paper titled ["Extending Source Code Pre-
 For questions about the content of this repo, please use the issues board. If you have any questions about the paper, please email the first author.
 
 ## Docker Image
-It is recommended to use the provided Docker image, which has the correct cuda version and all of the required dependencies installed. 
+It is recommended to use the provided Docker image, which has the correct Cuda version and all of the required dependencies installed. 
 Pull the image, create a container, and mount this folder as a volume:
 
 ``` 
 docker pull aalkaswan/bint5
-docker run -i -t --name {containerName} --gpus all -v $(pwd):data aalkaswan/bint5 /bin/bash
+docker run -i -t --name {containerName} --gpus all -v $(pwd):/data aalkaswan/bint5 /bin/bash
 ```
 
 This should spawn a shell, which allows you to use the container. Change to the mounted volume:
@@ -69,9 +69,11 @@ These models can be loaded into CodeT5 and used for inference or further trainin
 
 To utilise the models, download the reference CodeT5-base model from HuggingFace:
 
-```GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/Salesforce/codet5-base```
+```
+GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/Salesforce/codet5-base
+```
 
 - This will pull the repo but skip the `pytorch_model.bin` file, which will be replaced in the next step. 
-- Select the model that you wish to use from the respective directory. Copy this file and repace the `pytorch_model.bin` in the local `codet5-base` directory downloaded in the previous step. 
+- Select the model that you wish to use from the respective directory. Copy this file and replace the `pytorch_model.bin` in the local `codet5-base` directory downloaded in the previous step. 
 - Instead of loading in the model through HuggingFace, load in a local model. To load a local model, change line 66 in the `sh/exp_with_args.sh` file to the path of your local `codet5-base` model which you downloaded and configured in the previous step. The tokenizer does not need to be replaced. 
 - The model can now be run by executing `sh/run_exp.py`
