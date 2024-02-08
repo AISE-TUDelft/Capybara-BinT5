@@ -68,9 +68,10 @@ rm Capybara.zip
 ## Finetune Models 
 To use this data in BinT5, setup the data folders in the CodeT5 project:
 ```bash
-mkdir -p CodeT5\data\summarize\{C,decomC,demiStripped,strippedDecomC}
+mkdir -p CodeT5/data/summarize/{C,decomC,demiStripped,strippedDecomC}
 ```
 Now you can simply move the data of your choice from `\Capybara\training_data\{lan}\{dup/dedup}` to `CodeT5\data\summarize\{lan}`. 
+In the downloaded CodeT5 repo change [this line and add the languages to the subtask list](https://github.com/salesforce/CodeT5/blob/e78a61a17f6dc2f3cbb968447d3e2d065b426e7b/CodeT5/sh/run_exp.py#L134C1-L135C1). 
 Finally, edit the `language` variable in the `job.sh` file and start training in detached mode:
 
 ```bash
