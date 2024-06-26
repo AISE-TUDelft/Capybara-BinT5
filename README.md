@@ -28,7 +28,7 @@ docker run -i -t --name {containerName} --gpus all -v $(pwd):/data aalkaswan/bin
 
 This should spawn a shell, which allows you to use the container. Change to the mounted volume:
 ```bash
-cd mnt/data/
+cd /data/
 ```
 
 All of the following commands should then be run from within the Docker container. You can respawn the shell using:
