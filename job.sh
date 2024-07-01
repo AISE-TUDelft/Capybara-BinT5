@@ -1,4 +1,4 @@
-cd /data/CodeT5/sh/
+cd /data/CodeT5/CodeT5/sh/
 
 lang=decomC #programming language
 model=codet5_base

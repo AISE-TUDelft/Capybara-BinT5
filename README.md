@@ -49,7 +49,7 @@ git clone https://github.com/salesforce/CodeT5.git
 Run the following command to set the correct working directory in the training script:
 
 ```bash
-wdir=\WORKDIR=\"`pwd`/'CodeT5'\" && sed '1 s#^.*$#'$wdir'#' CodeT5/sh/exp_with_args.sh
+wdir=\WORKDIR=\"`pwd`/'CodeT5/CodeT5'\" && sed -i '1 s#^.*$#'$wdir'#' CodeT5/sh/exp_with_args.sh
 ```
 
 Now that the model is set up we need to download the data, use the following commands to download and unpack the data:
@@ -68,7 +68,7 @@ rm Capybara.zip
 ## Finetune Models 
 To use this data in BinT5, setup the data folders in the CodeT5 project:
 ```bash
-mkdir -p CodeT5/data/summarize/{C,decomC,demiStripped,strippedDecomC}
+mkdir -p CodeT5/CodeT5/data/summarize/{C,decomC,demiStripped,strippedDecomC}
 ```
 Now you can simply move the data of your choice from `\Capybara\training_data\{lan}\{dup/dedup}` to `CodeT5\data\summarize\{lan}`. 
 In the downloaded CodeT5 repo change [this line and add the languages to the subtask list](https://github.com/salesforce/CodeT5/blob/e78a61a17f6dc2f3cbb968447d3e2d065b426e7b/CodeT5/sh/run_exp.py#L134C1-L135C1). 
