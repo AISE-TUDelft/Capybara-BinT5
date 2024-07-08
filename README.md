@@ -49,7 +49,7 @@ git clone https://github.com/salesforce/CodeT5.git
 Run the following command to set the correct working directory in the training script:
 
 ```bash
-wdir=\WORKDIR=\"`pwd`/'CodeT5/CodeT5'\" && sed -i '1 s#^.*$#'$wdir'#' CodeT5/sh/exp_with_args.sh
+wdir=\WORKDIR=\"`pwd`/'CodeT5/CodeT5'\" && sed -i '1 s#^.*$#'$wdir'#' CodeT5/CodeT5/sh/exp_with_args.sh
 ```
 
 Now that the model is set up we need to download the data, use the following commands to download and unpack the data:
